@@ -4,9 +4,9 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <div class="flex items-center">
-          <a @click="nav_home" class="flex-shrink-0">
+          <router-link to="/" class="flex-shrink-0">
             <img class="h-8 w-8" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow">
-          </a>
+          </router-link>
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4">
               <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Treanding</a>
@@ -33,12 +33,15 @@
                 </router-link>
             </div>
             <div v-else>
-                <button @click="logout" class="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white mx-1">
-                    Logout
-                </button>
+              <router-link to="/studio" class="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white mx-1">
+                Studio
+              </router-link>
                 <router-link to="/profile" class="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white mx-1">
                     {{useremail}}
                 </router-link>
+                <button @click="logout" class="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white mx-1">
+                    Logout
+                </button>
             </div>
           </div>
         </div>
@@ -83,10 +86,6 @@ export default {
             this.url = "/search/"+this.search
             this.$router.push(this.url)
         },
-        nav_home(){
-          this.$router.push("/")
-          this.search = ""
-        },
         logout(){
           localStorage.removeItem("authtoken")
           this.isuserlogin = false
@@ -100,7 +99,6 @@ export default {
           }
         })
         .then((res)=>{
-          
           if(res.data.user === undefined){
             this.isuserlogin = false;
           }else{

@@ -40,7 +40,6 @@ export default {
       })
       .then((res)=>{
         this.username = res.data.user.email
-        console.log(res.data.user)
         if(res.data.user.email == undefined){
           this.$router.push("/login")
         }
