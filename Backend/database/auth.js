@@ -1,13 +1,8 @@
 const mongoose = require("mongoose")
 const authTable = new mongoose.Schema({
-    id : {
-        type : String,
-        default : Date.now()
-    },
     email : {
         type : String,
         required : true,
-        maxlength : 100,
         unique : true
     },
     password :{
@@ -21,13 +16,10 @@ const authTable = new mongoose.Schema({
     fullname : {
         type : String,
         require : false,
-
     },
     username : {
         type: String,
-        require : false,
         unique : true,
-        default : Date.now()
     },
     profilephoto : {
         type : String,
@@ -44,7 +36,15 @@ const authTable = new mongoose.Schema({
     instagram :{
         type : String,
         require : false
+    },
+    follows : {
+        type:Array,
     }
 })
+
+
+
+
+
 
 module.exports = mongoose.model('Users', authTable)
