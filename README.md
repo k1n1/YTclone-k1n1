@@ -1,12 +1,12 @@
 ## Run
 
-Use NPM - Front-End
+Use NPM - FrontEnd
 
 ```bash
 npm install
 ```
 
-Use NPM - Back-End 
+Use NPM - BackEnd 
 
 ```bash
 cd Backend
