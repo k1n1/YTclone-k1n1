@@ -4,17 +4,17 @@
     <router-view>
       
     </router-view>
-    <Footer />
+    <!-- <Footer /> -->
   </div>
 </template>
 <script>
 import Base from "./components/Base"
-import Footer from "./components/Footer"
+// import Footer from "./components/Footer"
 export default {
   name: 'App',
   components: {
     Base,
-    Footer,
+    // Footer,
   }
 }
 </script>
